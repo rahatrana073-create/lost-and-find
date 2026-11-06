@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPU Lost and Found</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🎓 LPU Lost & Found</h1>
+    <p>Report lost or found items across university campus</p>
+  </header>
+
+  <main class="container">
+    <!-- Form to Report Item -->
+    <section class="form-card">
+      <h2>Report an Item</h2>
+      <form id="itemForm">
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" placeholder="e.g. Blue Water Bottle, ID Card" required>
+
+        <label for="category">Category:</label>
+        <select id="category" required>
+          <option value="ID / Cards">ID / Cards</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Books & Notes">Books & Notes</option>
+          <option value="Clothing / Accessories">Clothing / Accessories</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="status">Status:</label>
+        <select id="status" required>
+          <option value="Lost">Lost (I lost this)</option>
+          <option value="Found">Found (I found this)</option>
+        </select>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" placeholder="e.g. Library 2nd Floor, Canteen" required>
+
+        <label for="contact">Contact Info (Email/Phone):</label>
+        <input type="text" id="contact" placeholder="e.g. student@univ.edu / 9876543210" required>
+
+        <button type="submit">Submit Report</button>
+      </form>
+    </section>
+
+    <!-- List of Reported Items -->
+    <section class="list-section">
+      <div class="list-header">
+        <h2>Reported Items</h2>
+        <!-- Simple Filter -->
+        <select id="filterStatus" onchange="renderItems()">
+          <option value="All">All Items</option>
+          <option value="Lost">Lost Only</option>
+          <option value="Found">Found Only</option>
+        </select>
+      </div>
+
+      <div id="itemList" class="item-grid">
+        <!-- Dynamic items will appear here -->
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

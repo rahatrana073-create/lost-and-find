@@ -1,0 +1,284 @@
+/* Reset & Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+/* Header with subtle slide-down animation */
+header {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.6s ease;
+}
+
+header h1 {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+header h1:hover {
+  transform: scale(1.03);
+}
+
+header p {
+  margin-top: 6px;
+  color: #bfdbfe;
+}
+
+/* Main Layout */
+.container {
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Form Card with hover lift */
+.form-card {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  height: fit-content;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.form-card h2 {
+  margin-bottom: 16px;
+  color: #1e3a8a;
+}
+
+form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+/* Inputs & Dropdowns with focus glow animation */
+form input, form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: all 0.25s ease;
+}
+
+form input:focus, form select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Submit Button Hover Animation */
+form button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+form button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.4);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* Items List Section */
+.list-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.list-header h2 {
+  color: #1e3a8a;
+}
+
+.list-header select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.list-header select:hover {
+  border-color: #2563eb;
+}
+
+/* Item Grid & Cards */
+.item-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Card entry animation + hover float effect */
+.item-card {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 6px solid #2563eb;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.item-card.lost {
+  border-left-color: #ef4444;
+}
+
+.item-card.found {
+  border-left-color: #10b981;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-top h3 {
+  font-size: 18px;
+}
+
+/* Badge hover pop */
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+.badge.lost {
+  background-color: #ef4444;
+}
+
+.badge.found {
+  background-color: #10b981;
+}
+
+.item-details p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #4b5563;
+}
+
+/* Delete / Resolved Button Hover Animation */
+.delete-btn {
+  margin-top: 12px;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+  transform: scale(1.02);
+  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.3);
+}
+
+.delete-btn:active {
+  transform: scale(0.98);
+}
+
+.empty-msg {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
